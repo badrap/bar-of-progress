@@ -55,6 +55,7 @@ export default function(_config) {
   let timeout = null;
 
   const setState = state => {
+    current.className = "";
     current.classList.add(config.className);
     current.classList.add(state);
     assign(assign(current.style, baseStyle), stateStyles[state]);
@@ -62,7 +63,7 @@ export default function(_config) {
 
   this.start = () => {
     if (current && current.parentNode) {
-      current.parentNode.removeElement(current);
+      current.parentNode.removeChild(current);
     }
     current = document.createElement("div");
     setState("stopped");
@@ -83,7 +84,7 @@ export default function(_config) {
       timeout = null;
     }
     if (current) {
-      setState(current, "finished");
+      setState("finished");
     }
   };
 }
