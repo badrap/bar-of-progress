@@ -1,15 +1,23 @@
 {
   "name": "@badrap/bar-of-progress",
-  "version": "0.0.1",
-  "main": "dist/ProgressBar.vue",
+  "version": "0.0.2",
+  "main": "dist/index.js",
+  "main:umd": "dist/index.umd.js",
+  "module": "dist/index.mjs",
+  "source": "src/index.js",
   "repository": "badrap/bar-of-progress",
   "author": "Joachim Viide <jviide@iki.fi>",
   "license": "MIT",
   "scripts": {
-    "build": "vue-compile src/ProgressBar.vue -o dist/ProgressBar.vue",
+    "lint": "eslint --ignore-path .gitignore --max-warnings 0 .",
+    "build": "rm -rf dist && microbundle",
     "prepublishOnly": "yarn run build"
   },
   "devDependencies": {
-    "vue-compile": "^0.5.3"
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "microbundle": "^0.11.0",
+    "prettier": "^1.16.4"
   }
 }
