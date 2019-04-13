@@ -1,7 +1,3 @@
-const asPx = value => {
-  return typeof value === "number" ? value + "px" : value;
-};
-
 const assign = (to, from) => {
   Object.keys(from || {}).forEach(key => {
     to[key] = from[key];
@@ -22,30 +18,30 @@ export default function(_config) {
 
   const baseStyle = {
     position: "fixed",
-    height: asPx(config.size || 0),
-    top: "0",
-    left: "0",
-    margin: "0",
-    padding: "0",
+    height: typeof config.size === "number" ? config.size + "px" : config.size,
+    top: 0,
+    left: 0,
+    margin: 0,
+    padding: 0,
     border: "none",
-    borderRadius: "0",
+    borderRadius: 0,
     backgroundColor: config.color,
-    zIndex: "9999",
+    zIndex: 9999,
     boxShadow: "0 0 2px rgba(0, 0, 0, 0.7)"
   };
 
   const stateStyles = {
     stopped: {
-      opacity: "0",
+      opacity: 0,
       width: "0%"
     },
     started: {
+      opacity: 1,
       width: "99%",
-      opacity: "1",
       transition: "width 10s cubic-bezier(0.1, 0.05, 0, 1)"
     },
     finished: {
-      opacity: "0",
+      opacity: 0,
       width: "100%",
       transition: "width 0.1s ease-out, opacity 0.5s ease 0.2s"
     }
