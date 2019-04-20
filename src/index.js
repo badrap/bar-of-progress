@@ -1,11 +1,11 @@
-const assign = (to, from) => {
-  Object.keys(from || {}).forEach(key => {
-    to[key] = from[key];
-  });
-  return to;
-};
-
 export default function(_config) {
+  const assign = (to, from) => {
+    Object.keys(from || {}).forEach(key => {
+      to[key] = from[key];
+    });
+    return to;
+  };
+
   const config = assign(
     {
       size: 2,
@@ -51,9 +51,7 @@ export default function(_config) {
   let timeout = null;
 
   const setState = state => {
-    current.className = "";
-    current.classList.add(config.className);
-    current.classList.add(state);
+    current.className = config.className + " " + state;
     assign(assign(current.style, baseStyle), stateStyles[state]);
   };
 
