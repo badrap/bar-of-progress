@@ -1,4 +1,4 @@
-export default function(_config) {
+export default function(config) {
   const assign = (to, from) => {
     Object.keys(from || {}).forEach(key => {
       to[key] = from[key];
@@ -6,17 +6,17 @@ export default function(_config) {
     return to;
   };
 
-  const config = assign(
+  config = assign(
     {
       size: 3,
-      color: "red",
+      color: "#29e",
       className: "bar-of-progress",
       delay: 80
     },
-    _config
+    config
   );
 
-  const baseStyle = {
+  const initialStyle = {
     position: "fixed",
     height: typeof config.size === "number" ? config.size + "px" : config.size,
     top: 0,
@@ -25,50 +25,55 @@ export default function(_config) {
     padding: 0,
     border: "none",
     borderRadius: 0,
-    backgroundColor: config.color,
+    color: config.color,
+    backgroundColor: "currentColor",
     zIndex: 9999,
-    boxShadow: "0 0 2px rgba(0, 0, 0, 0.7)"
+    opacity: 0,
+    width: "0%"
   };
 
-  const stateStyles = {
-    stopped: {
-      opacity: 0,
-      width: "0%"
-    },
-    started: {
-      opacity: 1,
-      width: "99%",
-      transition: "width 10s cubic-bezier(0.1, 0.05, 0, 1)"
-    },
-    finished: {
-      opacity: 0,
-      width: "100%",
-      transition: "width 0.1s ease-out, opacity 0.5s ease 0.2s"
-    }
+  const startedStyle = {
+    opacity: 1,
+    width: "99%",
+    transition: "width 10s cubic-bezier(0.1, 0.05, 0, 1)"
+  };
+
+  const finishedStyle = {
+    opacity: 0,
+    width: "100%",
+    transition: "width 0.1s ease-out, opacity 0.5s ease 0.2s"
+  };
+
+  const glowStyle = {
+    opacity: 0.5,
+    boxShadow: "5px 0 8px",
+    height: "100%"
   };
 
   let current = null;
   let timeout = null;
-
-  const setState = state => {
-    current.className = config.className + " " + state;
-    assign(assign(current.style, baseStyle), stateStyles[state]);
-  };
 
   this.start = () => {
     if (current && current.parentNode) {
       current.parentNode.removeChild(current);
     }
     current = document.createElement("div");
-    setState("stopped");
+    current.className = config.className + " stopped";
+    assign(current.style, initialStyle);
     document.body.appendChild(current);
+
+    const glow = document.createElement("div");
+    glow.className = "glow";
+    assign(glow.style, glowStyle);
+    current.appendChild(glow);
 
     if (timeout !== null) {
       clearTimeout(timeout);
     }
     timeout = setTimeout(() => {
       timeout = null;
-      setState("started");
+      current.className = config.className + " started";
+      assign(current.style, startedStyle);
     }, config.delay);
   };
 
@@ -78,7 +83,8 @@ export default function(_config) {
       timeout = null;
     }
     if (current) {
-      setState("finished");
+      current.className = config.className + " finished";
+      assign(current.style, finishedStyle);
     }
   };
 }
