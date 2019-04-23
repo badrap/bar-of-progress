@@ -36,7 +36,7 @@ End the progress bar animation by calling the `.finish()` method:
 
 ```js
 setTimeout(() => {
-  progress.finish()
+  progress.finish();
 }, 1000);
 ```
 
