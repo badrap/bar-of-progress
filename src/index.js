@@ -45,8 +45,8 @@ export default function(config) {
   };
 
   const glowStyle = {
-    opacity: 0.5,
-    boxShadow: "5px 0 8px",
+    opacity: 0.4,
+    boxShadow: "3px 0 8px",
     height: "100%"
   };
 
