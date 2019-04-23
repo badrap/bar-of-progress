@@ -73,6 +73,9 @@ export default function(config) {
       current.className = config.className + " started";
       assign(current.style, startedStyle);
     }, config.delay);
+
+    // Force a reflow, just to be sure.
+    current.scrollTop = 0;
   };
 
   this.finish = () => {
