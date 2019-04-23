@@ -8,7 +8,7 @@ export default function(config) {
 
   config = assign(
     {
-      size: 3,
+      size: 2,
       color: "#29e",
       className: "bar-of-progress",
       delay: 80
