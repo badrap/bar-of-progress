@@ -2,6 +2,8 @@
 
 A small, easy & zero-dependency progress bar component.
 
+![](https://user-images.githubusercontent.com/19776768/56576324-b40f1100-65d0-11e9-8332-37411ed01bd8.gif)
+
 ## Features
 
  * **Zero dependencies**: Also not tied to any framework in particular
