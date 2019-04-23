@@ -57,15 +57,13 @@ export default function(config) {
     if (current && current.parentNode) {
       current.parentNode.removeChild(current);
     }
-    current = document.createElement("div");
+    current = document.body.appendChild(document.createElement("div"));
     current.className = config.className + " stopped";
     assign(current.style, initialStyle);
-    document.body.appendChild(current);
 
-    const glow = document.createElement("div");
+    const glow = current.appendChild(document.createElement("div"));
     glow.className = "glow";
     assign(glow.style, glowStyle);
-    current.appendChild(glow);
 
     if (timeout !== null) {
       clearTimeout(timeout);
