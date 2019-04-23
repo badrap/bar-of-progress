@@ -1,6 +1,6 @@
 {
   "name": "@badrap/bar-of-progress",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "main": "dist/index.js",
   "main:umd": "dist/index.umd.js",
   "module": "dist/index.mjs",
