@@ -1,5 +1,13 @@
 # bar-of-progress [![CircleCI](https://circleci.com/gh/badrap/bar-of-progress.svg?style=shield)](https://circleci.com/gh/badrap/bar-of-progress) [![npm](https://img.shields.io/npm/v/@badrap/bar-of-progress.svg)](https://www.npmjs.com/package/@badrap/bar-of-progress)
 
+A small, easy & zero-dependency progress bar component.
+
+## Features
+
+ * **Zero dependencies**: Also not tied to any framework in particular
+ * **Small size**: < 500 bytes with Brotli (< 600 bytes gzipped)
+ * **Easy to use**: Just a couple of lines and off you go
+
 ## Installation
 
 ```sh
