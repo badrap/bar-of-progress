@@ -30,6 +30,8 @@ setTimeout(() => {
 }, 1000);
 ```
 
+You can reuse a `progress` instance multiple times - every time `.start()` gets called the progress bar starts animation from scratch.
+
 ## Customization
 
 The progress bar's appearance and behavior can be (slightly) customized with constructor parameters. Here are the different options and their default values:
