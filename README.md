@@ -25,7 +25,9 @@ progress.start();
 End the progress bar animation by calling the `.finish()` method:
 
 ```js
-setTimeout(() => progress.finish(), 1000);
+setTimeout(() => {
+  progress.finish()
+}, 1000);
 ```
 
 ## Customization
