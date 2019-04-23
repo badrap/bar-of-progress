@@ -18,16 +18,16 @@ export default function(config) {
 
   const initialStyle = {
     position: "fixed",
-    height: typeof config.size === "number" ? config.size + "px" : config.size,
     top: 0,
     left: 0,
     margin: 0,
     padding: 0,
     border: "none",
     borderRadius: 0,
-    color: config.color,
     backgroundColor: "currentColor",
-    zIndex: 9999,
+    zIndex: 10000,
+    height: typeof config.size === "number" ? config.size + "px" : config.size,
+    color: config.color,
     opacity: 0,
     width: "0%"
   };
@@ -50,8 +50,8 @@ export default function(config) {
     height: "100%"
   };
 
-  let current = null;
-  let timeout = null;
+  let current;
+  let timeout;
 
   this.start = () => {
     if (current && current.parentNode) {
@@ -65,7 +65,7 @@ export default function(config) {
     glow.className = "glow";
     assign(glow.style, glowStyle);
 
-    if (timeout !== null) {
+    if (timeout != null) {
       clearTimeout(timeout);
     }
     timeout = setTimeout(() => {
@@ -74,12 +74,12 @@ export default function(config) {
       assign(current.style, startedStyle);
     }, config.delay);
 
-    // Force a reflow, just to be sure.
+    // Force a reflow, just to be sure that the initial style takes effect.
     current.scrollTop = 0;
   };
 
   this.finish = () => {
-    if (timeout !== null) {
+    if (timeout != null) {
       clearTimeout(timeout);
       timeout = null;
     }
