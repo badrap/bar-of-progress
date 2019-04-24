@@ -1,20 +1,43 @@
-export default function(config) {
-  const assign = (to, from) => {
-    Object.keys(from || {}).forEach(key => {
+type ProgressBar = {
+  start(): void;
+  finish(): void;
+};
+
+type ProgressBarConfig = {
+  size: number;
+  color: string;
+  className: string;
+  delay: number;
+};
+
+type ProgressBarConstructor = {
+  new (): ProgressBar;
+  new (options: Partial<ProgressBarConfig>): ProgressBar;
+};
+
+type Keyable = {
+  [key: string]: any;
+};
+
+const ProgressBar = function(
+  this: ProgressBar,
+  options: Partial<ProgressBarConfig>
+) {
+  const assign = (to: Keyable, from: Keyable) => {
+    Object.keys(from).forEach(key => {
       to[key] = from[key];
     });
-    return to;
   };
 
-  config = assign(
-    {
-      size: 2,
-      color: "#29e",
-      className: "bar-of-progress",
-      delay: 80
-    },
-    config
-  );
+  const config: ProgressBarConfig = {
+    size: 2,
+    color: "#29e",
+    className: "bar-of-progress",
+    delay: 80
+  };
+  if (options) {
+    assign(config, options);
+  }
 
   const initialStyle = {
     position: "fixed",
@@ -50,8 +73,8 @@ export default function(config) {
     height: "100%"
   };
 
-  let current;
-  let timeout;
+  let timeout: number | undefined | null;
+  let current!: HTMLElement;
 
   this.start = () => {
     if (current && current.parentNode) {
@@ -74,7 +97,7 @@ export default function(config) {
       assign(current.style, startedStyle);
     }, config.delay);
 
-    // Force a reflow, just to be sure that the initial style takes effect.
+    // Force a reflow, just to be sure that the initial style takes effect!.
     current.scrollTop = 0;
   };
 
@@ -88,4 +111,6 @@ export default function(config) {
       assign(current.style, finishedStyle);
     }
   };
-}
+};
+
+export default (ProgressBar as unknown) as ProgressBarConstructor;

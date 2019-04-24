@@ -62,3 +62,6 @@ typings/
 
 # Build directory
 dist/
+
+# microbundle TypeScript cache
+.rts2_cache_*/
