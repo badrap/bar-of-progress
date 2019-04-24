@@ -11,8 +11,7 @@ interface ProgressBarConfig {
 }
 
 interface ProgressBarConstructor {
-  new (): ProgressBar;
-  new (options: Partial<ProgressBarConfig>): ProgressBar;
+  new (options?: Partial<ProgressBarConfig>): ProgressBar;
 }
 
 interface Keyable {
@@ -21,7 +20,7 @@ interface Keyable {
 
 const ProgressBar = function(
   this: ProgressBar,
-  options: Partial<ProgressBarConfig>
+  options?: Partial<ProgressBarConfig>
 ): void {
   const assign = (to: Keyable, from: Keyable): void => {
     Object.keys(from).forEach(
