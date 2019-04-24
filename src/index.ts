@@ -1,32 +1,34 @@
-type ProgressBar = {
+interface ProgressBar {
   start(): void;
   finish(): void;
-};
+}
 
-type ProgressBarConfig = {
+interface ProgressBarConfig {
   size: number | string;
   color: string;
   className: string;
   delay: number;
-};
+}
 
-type ProgressBarConstructor = {
+interface ProgressBarConstructor {
   new (): ProgressBar;
   new (options: Partial<ProgressBarConfig>): ProgressBar;
-};
+}
 
-type Keyable = {
-  [key: string]: any;
-};
+interface Keyable {
+  [key: string]: unknown;
+}
 
 const ProgressBar = function(
   this: ProgressBar,
   options: Partial<ProgressBarConfig>
-) {
-  const assign = (to: Keyable, from: Keyable) => {
-    Object.keys(from).forEach(key => {
-      to[key] = from[key];
-    });
+): void {
+  const assign = (to: Keyable, from: Keyable): void => {
+    Object.keys(from).forEach(
+      (key): void => {
+        to[key] = from[key];
+      }
+    );
   };
 
   const config: ProgressBarConfig = {
@@ -76,7 +78,7 @@ const ProgressBar = function(
   let timeout: number | undefined | null;
   let current!: HTMLElement;
 
-  this.start = () => {
+  this.start = (): void => {
     if (current && current.parentNode) {
       current.parentNode.removeChild(current);
     }
@@ -91,7 +93,7 @@ const ProgressBar = function(
     if (timeout != null) {
       clearTimeout(timeout);
     }
-    timeout = setTimeout(() => {
+    timeout = setTimeout((): void => {
       timeout = null;
       current.className = config.className + " started";
       assign(current.style, startedStyle);
@@ -101,7 +103,7 @@ const ProgressBar = function(
     current.scrollTop = 0;
   };
 
-  this.finish = () => {
+  this.finish = (): void => {
     if (timeout != null) {
       clearTimeout(timeout);
       timeout = null;

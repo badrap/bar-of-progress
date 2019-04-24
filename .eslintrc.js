@@ -3,10 +3,16 @@ module.exports = {
     browser: true,
     es6: true
   },
-  extends: "eslint:recommended",
+  parser: "@typescript-eslint/parser",
+  extends: [
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "prettier/@typescript-eslint"
+  ],
   parserOptions: {
     ecmaVersion: 2018,
-    sourceType: "module"
+    sourceType: "module",
+    project: "./tsconfig.json"
   },
   plugins: ["prettier"],
   rules: {
@@ -15,6 +21,7 @@ module.exports = {
     "linebreak-style": ["error", "unix"],
     quotes: ["error", "double"],
     semi: ["error", "always"],
-    eqeqeq: ["error", "smart"]
+    eqeqeq: ["error", "smart"],
+    "@typescript-eslint/no-for-in-array": ["error"]
   }
 };
