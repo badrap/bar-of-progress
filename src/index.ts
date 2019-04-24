@@ -4,7 +4,7 @@ type ProgressBar = {
 };
 
 type ProgressBarConfig = {
-  size: number;
+  size: number | string;
   color: string;
   className: string;
   delay: number;
