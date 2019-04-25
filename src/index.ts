@@ -89,7 +89,7 @@ export default class {
         assign(current.style, startedStyle);
       }, config.delay);
 
-      // Force a reflow, just to be sure that the initial style takes effect!.
+      // Force a reflow, just to be sure that the initial style takes effect.
       current.scrollTop = 0;
     };
 
