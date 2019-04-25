@@ -22,6 +22,14 @@ module.exports = {
     quotes: ["error", "double"],
     semi: ["error", "always"],
     eqeqeq: ["error", "smart"],
-    "@typescript-eslint/no-for-in-array": ["error"]
+    "@typescript-eslint/no-for-in-array": ["error"],
+    "@typescript-eslint/explicit-member-accessibility": [
+      "error",
+      { accessibility: "no-public" }
+    ],
+    "@typescript-eslint/explicit-function-return-type": [
+      "error",
+      { allowExpressions: true, allowTypedFunctionExpressions: true }
+    ]
   }
 };
