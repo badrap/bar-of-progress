@@ -24,12 +24,9 @@ export default class ProgressBar {
   finish: () => void;
 
   constructor(options?: Partial<ProgressBarConfig>) {
-    interface Keyable {
-      [key: string]: unknown;
-    }
-
-    const assign = (to: Keyable, from: Keyable): void => {
-      Object.keys(from).forEach(key => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const assign = (to: any, from: any): void => {
+      Object.keys(from).forEach((key) => {
         to[key] = from[key];
       });
     };
@@ -38,7 +35,7 @@ export default class ProgressBar {
       size: 2,
       color: "#29e",
       className: "bar-of-progress",
-      delay: 80
+      delay: 80,
     };
     if (options) {
       assign(config, options);
@@ -58,25 +55,25 @@ export default class ProgressBar {
         typeof config.size === "number" ? config.size + "px" : config.size,
       color: config.color,
       opacity: 0,
-      width: "0%"
+      width: "0%",
     };
 
     const startedStyle = {
       opacity: 1,
       width: "99%",
-      transition: "width 10s cubic-bezier(0.1, 0.05, 0, 1)"
+      transition: "width 10s cubic-bezier(0.1, 0.05, 0, 1)",
     };
 
     const finishedStyle = {
       opacity: 0,
       width: "100%",
-      transition: "width 0.1s ease-out, opacity 0.5s ease 0.2s"
+      transition: "width 0.1s ease-out, opacity 0.5s ease 0.2s",
     };
 
     const glowStyle = {
       opacity: 0.4,
       boxShadow: "3px 0 8px",
-      height: "100%"
+      height: "100%",
     };
 
     let timeout: number | undefined | null;
