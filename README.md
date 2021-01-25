@@ -1,4 +1,4 @@
-# bar-of-progress [![tests](https://github.com/badrap/result/workflows/tests/badge.svg)](https://github.com/badrap/result/actions?query=workflow%3Atests) [![npm](https://img.shields.io/npm/v/@badrap/bar-of-progress.svg)](https://www.npmjs.com/package/@badrap/bar-of-progress)
+# bar-of-progress [![tests](https://github.com/badrap/bar-of-progress/workflows/tests/badge.svg)](https://github.com/badrap/bar-of-progress/actions?query=workflow%3Atests) [![npm](https://img.shields.io/npm/v/@badrap/bar-of-progress.svg)](https://www.npmjs.com/package/@badrap/bar-of-progress)
 
 A small, easy & zero-dependency progress bar component.
 
