@@ -1,4 +1,4 @@
-# bar-of-progress [![CircleCI](https://circleci.com/gh/badrap/bar-of-progress.svg?style=shield)](https://circleci.com/gh/badrap/bar-of-progress) [![npm](https://img.shields.io/npm/v/@badrap/bar-of-progress.svg)](https://www.npmjs.com/package/@badrap/bar-of-progress)
+# bar-of-progress [![npm](https://img.shields.io/npm/v/@badrap/bar-of-progress.svg)](https://www.npmjs.com/package/@badrap/bar-of-progress)
 
 A small, easy & zero-dependency progress bar component.
 
@@ -6,14 +6,14 @@ A small, easy & zero-dependency progress bar component.
 
 ## Features
 
- * **Zero dependencies**: Also not tied to any framework in particular.
- * **Small size**: < 500 bytes with Brotli (< 600 bytes gzipped).
- * **Easy to use**: Just a couple of lines and off you go. And TypeScript types are now available as well!
+- **Zero dependencies**: Also not tied to any framework in particular.
+- **Small size**: < 500 bytes with Brotli (< 600 bytes gzipped).
+- **Easy to use**: Just a couple of lines and off you go. And TypeScript types are now available as well!
 
 ## Installation
 
 ```sh
-$ npm install @badrap/bar-of-progress
+$ npm i @badrap/bar-of-progress
 ```
 
 ## Usage
@@ -51,17 +51,17 @@ const progress = new ProgressBar({
   // The size (height) of the progress bar.
   // Numeric values get converted to px.
   size: 2,
-  
+
   // Color of the progress bar.
   // Also used for the glow around the bar.
   color: "#29e",
-  
+
   // Class name used for the progress bar element.
   className: "bar-of-progress",
-  
+
   // How many milliseconds to wait before the progress bar
   // animation starts after calling .start().
-  delay: 80
+  delay: 80,
 });
 ```
 
