@@ -34,14 +34,11 @@ export default class ProgressBar {
     };
 
     const config: ProgressBarConfig = {
-      size: 2,
-      color: "#29e",
-      className: "bar-of-progress",
-      delay: 80,
+      size: options?.size || 2,
+      color: options?.color || "#29e",
+      className: options?.className || "bar-of-progress",
+      delay: options?.delay || 80,
     };
-    if (options) {
-      assign(config, options);
-    }
 
     const initialStyle = {
       position: "fixed",
