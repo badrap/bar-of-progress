@@ -24,11 +24,13 @@ export default class ProgressBar {
   finish: () => void;
 
   constructor(options?: Partial<ProgressBarConfig>) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const assign = (to: any, from: any): void => {
-      Object.keys(from).forEach((key) => {
+    const assign = (
+      to: Partial<CSSStyleDeclaration>,
+      from: Partial<CSSStyleDeclaration>
+    ): void => {
+      for (const key in from) {
         to[key] = from[key];
-      });
+      }
     };
 
     const config: ProgressBarConfig = {
