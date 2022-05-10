@@ -42,35 +42,34 @@ export default class ProgressBar {
 
     const initialStyle = {
       position: "fixed",
-      top: 0,
-      left: 0,
-      margin: 0,
-      padding: 0,
+      top: "0",
+      left: "0",
+      margin: "0",
+      padding: "0",
       border: "none",
-      borderRadius: 0,
-      backgroundColor: "currentColor",
-      zIndex: 10000,
-      height:
-        typeof config.size === "number" ? config.size + "px" : config.size,
+      borderRadius: "0",
+      backgroundColor: config.color,
+      zIndex: "10000",
+      height: `${config.size}px`,
       color: config.color,
-      opacity: 0,
+      opacity: "0",
       width: "0%",
     };
 
     const startedStyle = {
-      opacity: 1,
+      opacity: "1",
       width: "99%",
       transition: "width 10s cubic-bezier(0.1, 0.05, 0, 1)",
     };
 
     const finishedStyle = {
-      opacity: 0,
+      opacity: "0",
       width: "100%",
       transition: "width 0.1s ease-out, opacity 0.5s ease 0.2s",
     };
 
     const glowStyle = {
-      opacity: 0.4,
+      opacity: "0.4",
       boxShadow: "3px 0 8px",
       height: "100%",
     };
