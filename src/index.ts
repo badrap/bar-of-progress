@@ -74,7 +74,7 @@ export default class ProgressBar {
       height: "100%",
     };
 
-    let timeout: number | undefined | null;
+    let timeout: number | null = null;
     let current!: HTMLElement;
 
     this.start = () => {
