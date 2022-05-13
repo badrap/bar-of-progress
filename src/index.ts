@@ -49,7 +49,7 @@ export default class ProgressBar {
       padding: 0,
       border: "none",
       borderRadius: 0,
-      backgroundColor: "currentColor",
+      backgroundColor: config.color,
       zIndex: 10000,
       height:
         typeof config.size === "number" ? config.size + "px" : config.size,
