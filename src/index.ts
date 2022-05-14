@@ -24,22 +24,16 @@ export default class ProgressBar {
   finish: () => void;
 
   constructor(options?: Partial<ProgressBarConfig>) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const assign = (to: any, from: any): void => {
-      Object.keys(from).forEach((key) => {
-        to[key] = from[key];
-      });
-    };
-
-    const config: ProgressBarConfig = {
-      size: 2,
-      color: "#29e",
-      className: "bar-of-progress",
-      delay: 80,
-    };
-    if (options) {
-      assign(config, options);
-    }
+    const assign = Object.assign;
+    const config: ProgressBarConfig = assign(
+      {
+        size: 2,
+        color: "#29e",
+        className: "bar-of-progress",
+        delay: 80,
+      },
+      options
+    );
 
     const initialStyle = {
       position: "fixed",
