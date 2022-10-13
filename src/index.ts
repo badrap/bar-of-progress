@@ -70,7 +70,7 @@ export default class ProgressBar {
       height: "100%",
     };
 
-    let timeout: number | undefined | null | ReturnType<typeof setTimeout>
+    let timeout: ReturnType<typeof setTimeout> | undefined;
     let current!: HTMLElement;
 
     this.start = () => {
@@ -89,7 +89,7 @@ export default class ProgressBar {
         clearTimeout(timeout);
       }
       timeout = setTimeout(() => {
-        timeout = null;
+        timeout = undefined;
         current.className = config.className + " started";
         assign(current.style, startedStyle);
       }, config.delay);
@@ -101,7 +101,7 @@ export default class ProgressBar {
     this.finish = () => {
       if (timeout != null) {
         clearTimeout(timeout);
-        timeout = null;
+        timeout = undefined;
       }
       if (current) {
         current.className = config.className + " finished";
