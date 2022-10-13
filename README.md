@@ -26,11 +26,14 @@ import ProgressBar from "@badrap/bar-of-progress";
 const progress = new ProgressBar();
 ```
 
-Show the progress bar and begin animating it by calling the `.start()` method:
+Show the progress bar and begin animating it by calling the `.start()` method. 
 
 ```js
 progress.start();
 ```
+
+> **Note**
+> By default the progress bar does not appear immediately when `.start()` is called. Instead there is a 80 millisecond grace period, allowing very quickly completed tasks to avoid showing the progress bar. You can modify this (and other) behavior, see [Customization](#customization).
 
 End the progress bar animation by calling the `.finish()` method:
 
