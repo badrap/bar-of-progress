@@ -10,16 +10,16 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint --ignore-path .gitignore --max-warnings 0 --ext=.js,.ts src",
-    "build": "rm -rf dist && microbundle",
+    "build": "rm -rf dist/* && microbundle",
     "prepack": "npm run build"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.23.0",
-    "@typescript-eslint/parser": "^5.23.0",
-    "eslint": "^8.15.0",
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "@typescript-eslint/parser": "^5.40.0",
+    "eslint": "^8.25.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "microbundle": "^0.15.0",
-    "prettier": "^2.6.2"
+    "eslint-plugin-prettier": "^4.2.1",
+    "microbundle": "^0.15.1",
+    "prettier": "^2.7.1"
   }
 }
