@@ -10,6 +10,9 @@ A small, easy & zero-dependency progress bar component.
 - **Small size**: < 500 bytes with Brotli (< 600 bytes gzipped).
 - **Easy to use**: Just a couple of lines and off you go. And TypeScript types are now available as well!
 
+> [!NOTE]
+> We consider this package to be feature-complete, and as such we're not taking in any new feature requests or suggestions. Please use the issue tracker for bug reports and security concerns, which we highly value and welcome. Thank you for your understanding ❤️
+
 ## Installation
 
 ```sh
