@@ -1,0 +1,24 @@
+{
+  "root": true,
+  "extends": [
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parserOptions": {
+    "project": true
+  },
+  "rules": {
+    "prettier/prettier": "warn",
+    "linebreak-style": ["error", "unix"],
+    "eqeqeq": ["error", "smart"],
+    "@typescript-eslint/no-for-in-array": ["error"],
+    "@typescript-eslint/explicit-member-accessibility": [
+      "error",
+      { "accessibility": "no-public" }
+    ],
+    "@typescript-eslint/explicit-function-return-type": [
+      "error",
+      { "allowExpressions": true, "allowTypedFunctionExpressions": true }
+    ]
+  }
+}

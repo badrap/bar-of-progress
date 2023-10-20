@@ -32,7 +32,7 @@ export default class ProgressBar {
         className: "bar-of-progress",
         delay: 80,
       },
-      options
+      options,
     );
 
     const initialStyle = {
