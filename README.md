@@ -1,4 +1,4 @@
-# bar-of-progress [![tests](https://github.com/badrap/bar-of-progress/workflows/tests/badge.svg)](https://github.com/badrap/bar-of-progress/actions?query=workflow%3Atests) [![npm](https://img.shields.io/npm/v/@badrap/bar-of-progress.svg)](https://www.npmjs.com/package/@badrap/bar-of-progress)
+# bar-of-progress [![CI](https://github.com/badrap/bar-of-progress/actions/workflows/ci.yml/badge.svg)](https://github.com/badrap/bar-of-progress/actions/workflows/ci.yml) [![npm](https://img.shields.io/npm/v/@badrap/bar-of-progress.svg)](https://www.npmjs.com/package/@badrap/bar-of-progress)
 
 A small, easy & zero-dependency progress bar component.
 
@@ -29,7 +29,7 @@ import ProgressBar from "@badrap/bar-of-progress";
 const progress = new ProgressBar();
 ```
 
-Show the progress bar and begin animating it by calling the `.start()` method. 
+Show the progress bar and begin animating it by calling the `.start()` method.
 
 ```js
 progress.start();
