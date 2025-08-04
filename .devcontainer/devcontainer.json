@@ -1,5 +1,5 @@
 {
-  "name": "bar-of-progress",
+  "name": "@badrap/bar-of-progress",
   "build": {
     "dockerfile": "Dockerfile"
   },
@@ -13,10 +13,7 @@
   ],
   "customizations": {
     "vscode": {
-      "extensions": [
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode"
-      ]
+      "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"]
     }
   }
 }

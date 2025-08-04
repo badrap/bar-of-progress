@@ -5,7 +5,14 @@
     "dist": true
   },
   "typescript.tsdk": "node_modules/typescript/lib",
+  "eslint.format.enable": true,
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  }
 }

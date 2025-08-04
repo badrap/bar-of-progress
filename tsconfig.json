@@ -1,14 +1,22 @@
 {
   "compilerOptions": {
     "target": "es2015",
-    "module": "esnext",
-    "declaration": true,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "noImplicitReturns": true,
+    "declaration": true,
+    "isolatedModules": true,
+    "erasableSyntaxOnly": true,
+    "outDir": "./dist",
+    "sourceMap": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowImportingTsExtensions": true,
+    "rewriteRelativeImportExtensions": true,
+    "stripInternal": true,
+    "allowJs": true,
     "noFallthroughCasesInSwitch": true,
-    "typeRoots": []
+    "noUncheckedIndexedAccess": true
   },
   "include": ["src/**/*"]
 }

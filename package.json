@@ -1,25 +1,38 @@
 {
   "name": "@badrap/bar-of-progress",
   "version": "0.2.2",
-  "main": "dist/index.js",
-  "main:umd": "dist/index.umd.js",
-  "module": "dist/index.mjs",
-  "source": "src/index.ts",
+  "type": "commonjs",
+  "main": "dist/cjs/index.js",
+  "module": "dist/mjs/index.mjs",
+  "exports": {
+    ".": "./dist/mjs/index.mjs"
+  },
   "repository": "badrap/bar-of-progress",
   "author": "Joachim Viide <jviide@iki.fi>",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint --max-warnings 0 src",
-    "build": "rm -rf dist/* && microbundle",
-    "prepack": "npm run build"
+    "lint": "eslint --max-warnings 0 .",
+    "typecheck": "tsc --noEmit",
+    "build": "rm -rf dist/* && npm run build:cjs && npm run build:mjs",
+    "build:cjs": "tsc -p ./tsconfig.json --outDir ./dist/cjs",
+    "build:mjs": "tsc -p ./tsconfig.json --module esnext --moduleResolution node --outDir ./dist/mjs && mv ./dist/mjs/index.js ./dist/mjs/index.mjs && mv ./dist/mjs/index.d.ts ./dist/mjs/index.d.mts",
+    "changeset": "changeset",
+    "bump": "changeset version",
+    "release": "npm run build && changeset publish"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^6.8.0",
-    "@typescript-eslint/parser": "^6.8.0",
-    "eslint": "^8.51.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.1",
-    "microbundle": "^0.15.1",
-    "prettier": "^3.0.3"
-  }
+    "@changesets/changelog-github": "^0.5.1",
+    "@changesets/cli": "^2.29.5",
+    "@eslint/js": "^9.32.0",
+    "eslint": "^9.32.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.3",
+    "prettier": "^3.6.2",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.38.0"
+  },
+  "files": [
+    "src",
+    "dist"
+  ]
 }

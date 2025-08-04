@@ -46,7 +46,7 @@ export default class ProgressBar {
       backgroundColor: config.color,
       zIndex: 10000,
       height:
-        typeof config.size === "number" ? config.size + "px" : config.size,
+        typeof config.size === "number" ? `${config.size}px` : config.size,
       color: config.color,
       opacity: 0,
       width: "0%",
@@ -71,12 +71,10 @@ export default class ProgressBar {
     };
 
     let timeout: ReturnType<typeof setTimeout> | undefined;
-    let current!: HTMLElement;
+    let current: HTMLElement | undefined;
 
     this.start = () => {
-      if (current && current.parentNode) {
-        current.parentNode.removeChild(current);
-      }
+      current?.parentNode?.removeChild(current);
       current = document.body.appendChild(document.createElement("div"));
       current.className = config.className + " stopped";
       assign(current.style, initialStyle);
@@ -90,8 +88,10 @@ export default class ProgressBar {
       }
       timeout = setTimeout(() => {
         timeout = undefined;
-        current.className = config.className + " started";
-        assign(current.style, startedStyle);
+        if (current) {
+          current.className = config.className + " started";
+          assign(current.style, startedStyle);
+        }
       }, config.delay);
 
       // Force a reflow, just to be sure that the initial style takes effect.
